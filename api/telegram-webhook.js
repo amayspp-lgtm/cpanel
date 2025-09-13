@@ -128,7 +128,6 @@ Panel Creator Anda: ${VERCEL_BASE_URL}
 ------------------------------------
 🔑 Key: <code>${escapeHTML(addKeyData.key)}</code>
 ⚙️ Batasan Panel: <b>${escapeHTML(addKeyData.panelTypeRestriction || 'both')}</b>
-🌐 ${VERCEL_BASE_URL}
 ------------------------------------
 `;
       } else {
@@ -170,7 +169,7 @@ Panel Creator Anda: ${VERCEL_BASE_URL}
       console.error('[Webhook] Error calling list-keys API:', error);
       responseMessage = `Terjadi kesalahan internal saat mengambil daftar Access Key: ${escapeHTML(error.message)}`;
     }
-  } else if (text.startsWith('/r')) {
+  } else if (text.startsWith('/removekey')) {
     const keyToRemove = text.substring('/removekey'.length).trim();
     if (!keyToRemove) {
       responseMessage = 'Mohon sertakan Access Key yang ingin dihapus. Contoh: <code>/removekey myCustomKey</code>';
